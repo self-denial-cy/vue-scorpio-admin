@@ -1,0 +1,33 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+module.exports = {
+  root: true,
+  parserOptions: {
+    ecmaVersion: 'latest'
+  },
+  env: {
+    es6: true,
+    browser: true,
+    node: true
+  },
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
+  ],
+  overrides: [
+    {
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser'
+    },
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.vue']
+      }
+    }
+  ]
+};

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": [
+    "vite.config.ts"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "lib": [
+      "ES2023"
+    ],
+    "module": "ESNext",
+    "target": "ES2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
+    "types": [
+      "node"
+    ]
+  }
+}
