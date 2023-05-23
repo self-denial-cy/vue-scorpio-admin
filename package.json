@@ -29,6 +29,7 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@commitlint/cz-commitlint": "^17.5.0",
+    "@iconify-json/mi": "^1.1.4",
     "@release-it/conventional-changelog": "^5.1.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.16.8",
@@ -57,6 +58,7 @@
     "stylelint-prettier": "^3.0.0",
     "typescript": "~5.0.4",
     "unplugin-auto-import": "^0.16.2",
+    "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.3.5",
     "vue-tsc": "^1.6.4"
