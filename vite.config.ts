@@ -7,6 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import IconsResolver from 'unplugin-icons/resolver';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 function resolve(src: string): string {
   return fileURLToPath(new URL(src, import.meta.url));
@@ -49,7 +50,12 @@ export default defineConfig({
         // local: FileSystemIconLoader(resolve('./src/assets/icons'), (svg) =>
         //   svg.replace(/^<svg /, '<svg fill="currentColor" ')
         local: FileSystemIconLoader(resolve('./src/assets/icons'))
-      }
+      },
+      scale: 1
+    }),
+    // 雪碧图
+    createSvgIconsPlugin({
+      iconDirs: [resolve('./src/assets/icons')]
     })
   ],
   resolve: {

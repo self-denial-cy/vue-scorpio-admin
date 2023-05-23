@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div></div>
+  <SvgIcon name="qrcode"></SvgIcon>
 </template>
