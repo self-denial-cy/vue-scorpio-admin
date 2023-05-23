@@ -35,7 +35,6 @@ export default defineConfig({
           prefix: 'i',
           alias: {
             // 给图标集配置别名
-            m: 'mi',
             l: 'local'
           },
           customCollections: ['local']
@@ -47,9 +46,9 @@ export default defineConfig({
       autoInstall: true,
       customCollections: {
         // local 图标集，给 svg 文件设置 fill="currentColor" 属性，使图标颜色可适应【对 svg 格式有要求，有的 svg 内部写死了颜色】
-        local: FileSystemIconLoader(resolve('./src/assets/icons'), (svg) =>
-          svg.replace(/^<svg /, '<svg fill="currentColor" ')
-        )
+        // local: FileSystemIconLoader(resolve('./src/assets/icons'), (svg) =>
+        //   svg.replace(/^<svg /, '<svg fill="currentColor" ')
+        local: FileSystemIconLoader(resolve('./src/assets/icons'))
       }
     })
   ],

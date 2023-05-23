@@ -29,7 +29,6 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@commitlint/cz-commitlint": "^17.5.0",
-    "@iconify-json/mi": "^1.1.4",
     "@release-it/conventional-changelog": "^5.1.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.16.8",
