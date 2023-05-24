@@ -11,6 +11,7 @@ import IconsResolver from 'unplugin-icons/resolver';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import Autoprefixer from 'autoprefixer';
 import PostcssPxtorem from 'postcss-pxtorem';
+import UnoCss from 'unocss/vite';
 
 function resolve(src: string): string {
   return fileURLToPath(new URL(src, import.meta.url));
@@ -61,7 +62,9 @@ export default defineConfig({
       iconDirs: [resolve('./src/assets/icons')]
     }),
     // 响应性语法糖
-    ReactivityTransform()
+    ReactivityTransform(),
+    // unocss 原子化
+    UnoCss()
   ],
   resolve: {
     alias: {

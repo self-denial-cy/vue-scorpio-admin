@@ -20,7 +20,9 @@
     "stylelint": "stylelint \"src/**/*.{vue,less,scss,css}\" --ignore-path .gitignore"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "element-plus": "^2.3.5",
+    "normalize.css": "^8.0.1",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
@@ -37,7 +39,6 @@
     "@typescript-eslint/parser": "^5.58.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue-macros/reactivity-transform": "^0.3.8",
-    "amfe-flexible": "^2.2.1",
     "autoprefixer": "^10.4.14",
     "commitizen": "^4.3.0",
     "eslint": "^8.39.0",
@@ -63,6 +64,7 @@
     "stylelint-order": "^6.0.3",
     "stylelint-prettier": "^3.0.0",
     "typescript": "~5.0.4",
+    "unocss": "^0.52.3",
     "unplugin-auto-import": "^0.16.2",
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",

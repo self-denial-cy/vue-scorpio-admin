@@ -1,6 +1,11 @@
 {
   "recommendations": [
     "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin"
+    "Vue.vscode-typescript-vue-plugin",
+    "EditorConfig.EditorConfig",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "antfu.unocss"
   ]
 }
