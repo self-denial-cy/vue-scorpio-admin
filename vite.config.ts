@@ -9,6 +9,8 @@ import Icons from 'unplugin-icons/vite';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import IconsResolver from 'unplugin-icons/resolver';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import Autoprefixer from 'autoprefixer';
+import PostcssPxtorem from 'postcss-pxtorem';
 
 function resolve(src: string): string {
   return fileURLToPath(new URL(src, import.meta.url));
@@ -64,6 +66,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('./src')
+    }
+  },
+  css: {
+    postcss: {
+      plugins: [
+        Autoprefixer(),
+        PostcssPxtorem({
+          rootValue: 192,
+          unitPrecision: 5,
+          propList: ['*', '!border'],
+          minPixelValue: 12
+        })
+      ]
     }
   }
 });
