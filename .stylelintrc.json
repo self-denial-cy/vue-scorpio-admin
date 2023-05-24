@@ -21,6 +21,7 @@
   ],
   "plugins": [
     "stylelint-order",
+    "stylelint-scss",
     "stylelint-prettier"
   ],
   "rules": {

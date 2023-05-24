@@ -35,7 +35,9 @@ export default defineConfig({
     VueComponents({
       dts: resolve('./src/types/vue-components.d.ts'),
       resolvers: [
-        ElementPlusResolver(),
+        ElementPlusResolver({
+          importStyle: 'sass'
+        }),
         IconsResolver({
           prefix: 'i',
           alias: {
@@ -72,6 +74,11 @@ export default defineConfig({
     }
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use '@/styles/scss/index.scss' as *;`
+      }
+    },
     postcss: {
       plugins: [
         Autoprefixer(),
