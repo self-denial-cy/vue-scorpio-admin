@@ -11,6 +11,12 @@
         "**/*.less"
       ],
       "customSyntax": "postcss-less"
+    },
+    {
+      "files": [
+        "**/*.scss"
+      ],
+      "customSyntax": "postcss-scss"
     }
   ],
   "plugins": [

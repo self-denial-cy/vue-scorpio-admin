@@ -17,7 +17,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc",
     "eslint": "eslint . --ext .vue,.js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
-    "stylelint": "stylelint \"src/**/*.{vue,less,css}\" --ignore-path .gitignore"
+    "stylelint": "stylelint \"src/**/*.{vue,less,scss,css}\" --ignore-path .gitignore"
   },
   "dependencies": {
     "element-plus": "^2.3.5",
@@ -48,8 +48,10 @@
     "postcss": "^8.4.23",
     "postcss-html": "^1.5.0",
     "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "release-it": "^15.10.1",
+    "sass": "^1.62.1",
     "stylelint": "^14.14.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-prettier": "^9.0.5",

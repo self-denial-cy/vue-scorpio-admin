@@ -22,5 +22,6 @@
     "eslint --fix"
   ],
   "*.less": "stylelint --fix",
+  "*.scss": "stylelint --fix",
   "*.css": "stylelint --fix"
 }
