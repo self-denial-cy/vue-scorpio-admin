@@ -75,6 +75,13 @@
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,
-    "watchSyncEffect": true
+    "watchSyncEffect": true,
+    "$": true,
+    "$$": true,
+    "$computed": true,
+    "$customRef": true,
+    "$ref": true,
+    "$shallowRef": true,
+    "$toRef": true
   }
 }

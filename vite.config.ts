@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
+import ReactivityTransform from '@vue-macros/reactivity-transform/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import VueComponents from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
@@ -18,7 +19,7 @@ export default defineConfig({
     Vue(),
     // API 自动按需导入
     AutoImport({
-      imports: ['vue', 'vue-router', 'pinia'],
+      imports: ['vue', 'vue-router', 'pinia', 'vue/macros'],
       dts: resolve('./src/types/auto-imports.d.ts'),
       eslintrc: {
         enabled: true, // 更新了 unplugin-auto-import 导入配置后，设置为 true，重新生成一份 eslint globals 再关闭即可
@@ -56,7 +57,9 @@ export default defineConfig({
     // 雪碧图
     createSvgIconsPlugin({
       iconDirs: [resolve('./src/assets/icons')]
-    })
+    }),
+    // 响应性语法糖
+    ReactivityTransform()
   ],
   resolve: {
     alias: {

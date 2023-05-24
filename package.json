@@ -35,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vue-macros/reactivity-transform": "^0.3.8",
     "commitizen": "^4.3.0",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
