@@ -1,5 +1,12 @@
 {
   "globals": {
+    "$": true,
+    "$$": true,
+    "$computed": true,
+    "$customRef": true,
+    "$ref": true,
+    "$shallowRef": true,
+    "$toRef": true,
     "Component": true,
     "ComponentPublicInstance": true,
     "ComputedRef": true,
@@ -75,13 +82,6 @@
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,
-    "watchSyncEffect": true,
-    "$": true,
-    "$$": true,
-    "$computed": true,
-    "$customRef": true,
-    "$ref": true,
-    "$shallowRef": true,
-    "$toRef": true
+    "watchSyncEffect": true
   }
 }
