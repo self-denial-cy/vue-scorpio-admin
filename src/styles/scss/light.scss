@@ -1,6 +1,4 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   // 在此覆盖 element-plus 默认主题
-  $colors: (
-
-  ),
+  $colors: ()
 );

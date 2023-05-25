@@ -1,6 +1,7 @@
 {
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-standard-scss",
     "stylelint-config-html/vue",
     "stylelint-config-prettier",
     "stylelint-prettier/recommended"
@@ -21,31 +22,14 @@
   ],
   "plugins": [
     "stylelint-order",
-    "stylelint-scss",
     "stylelint-prettier"
   ],
   "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
     "prettier/prettier": true,
     "alpha-value-notation": "number",
     "at-rule-empty-line-before": "never",
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "content",
-          "each",
-          "error",
-          "extend",
-          "for",
-          "function",
-          "if",
-          "include",
-          "mixin",
-          "return",
-          "while"
-        ]
-      }
-    ],
     "color-function-notation": "legacy",
     "color-no-invalid-hex": true,
     "comment-empty-line-before": "never",
