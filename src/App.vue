@@ -1,13 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
-  <SvgIcon name="qrcode"></SvgIcon>
-  <h1 class="h1-class c-#2d8cf0 text-size-4">123</h1>
-  <el-button type="primary">Primary</el-button>
+  <ElConfigProvider>
+    <RouterView v-slot="{ Component }">
+      <template v-if="Component">
+        <Suspense>
+          <component :is="Component"></component>
+          <template #fallback>
+            <Loading></Loading>
+          </template>
+        </Suspense>
+      </template>
+    </RouterView>
+  </ElConfigProvider>
 </template>
-
-<style lang="scss">
-.h1-class {
-  font-size: 16px;
-}
-</style>
