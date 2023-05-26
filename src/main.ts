@@ -1,6 +1,5 @@
 import 'amfe-flexible';
 import 'virtual:svg-icons-register';
-import 'normalize.css';
 import 'virtual:uno.css';
 import 'nprogress/nprogress.css';
 

@@ -11,6 +11,11 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    Exception: typeof import('./../components/Exception.vue')['default']
+    IL403: typeof import('~icons/local/403')['default']
+    IL404: typeof import('~icons/local/404')['default']
+    IL500: typeof import('~icons/local/500')['default']
     Loading: typeof import('./../components/Loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

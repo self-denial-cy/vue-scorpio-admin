@@ -7,7 +7,7 @@ defineOptions({
 </script>
 
 <template>
-  <div class="w-full h-full flex justify-center items-center">
+  <div class="w-100vh h-100vh flex justify-center items-center">
     <Lottie :animation-data="loadingJSON" :width="250" :height="250"></Lottie>
   </div>
 </template>

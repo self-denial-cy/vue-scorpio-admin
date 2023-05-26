@@ -22,7 +22,6 @@
   "dependencies": {
     "amfe-flexible": "^2.2.1",
     "element-plus": "^2.3.5",
-    "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
