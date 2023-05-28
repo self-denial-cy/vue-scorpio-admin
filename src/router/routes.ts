@@ -1,12 +1,14 @@
 import type { RouteRecordRaw } from 'vue-router';
 
+export const rootRoute: RouteRecordRaw = {
+  name: 'root',
+  path: '/',
+  redirect: '/login'
+};
+
 // 初始路由列表
 export const initRoutes: RouteRecordRaw[] = [
-  {
-    name: 'root',
-    path: '/',
-    redirect: '/login'
-  },
+  rootRoute,
   {
     name: 'login',
     path: '/login',
