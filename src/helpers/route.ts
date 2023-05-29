@@ -1,11 +1,17 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-export function generateDynamicRoutes(modules: Record<string, { route: RouteRecordRaw }>) {
+export function generateDynamicRoutes(modules: Record<string, { record: RouteRecordRaw }>) {
   const routes: RouteRecordRaw[] = [];
   Object.keys(modules).forEach((key) => {
-    routes.push(modules[key].route);
+    routes.push(modules[key].record);
   });
-  return routes;
+  // 使用 flat 方法浅拷贝一下路由表
+  return sortRoutes(routes.flat());
+}
+
+// 路由根据 meta.sort 排序
+function sortRoutes(routes: RouteRecordRaw[]) {
+  return routes.sort((next, pre) => (next.meta?.sort ?? 0) - (pre.meta?.sort ?? 0));
 }
 
 // 获取路由表的 name 集合
@@ -33,12 +39,13 @@ export function transformRouteToMenu(routes: RouteRecordRaw[], parentPath?: stri
     }
     const menu: MenuRecord = {
       key: name,
-      label: meta ? (meta.title as string) : '',
+      label: meta ? meta.title : '',
       name: name,
       path: fullPath,
-      icon: meta ? (meta.icon as string) : '',
+      icon: meta ? meta.icon : '',
       children: children
     };
+    // TODO 是否在菜单中隐藏
     menus.push(menu);
   });
   return menus;

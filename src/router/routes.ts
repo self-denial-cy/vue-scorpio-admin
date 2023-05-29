@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 export const rootRoute: RouteRecordRaw = {
   name: 'root',
   path: '/',
-  redirect: '/login'
+  redirect: '/dashboard'
 };
 
 // 初始路由列表
@@ -41,9 +41,10 @@ export const initRoutes: RouteRecordRaw[] = [
       title: 'Internal Server Error'
     }
   },
+  // 匹配无效路径的路由
   {
     name: '*',
     path: '/:pathMatch(.*)*',
-    redirect: '/404'
+    component: () => import('@/views/404/index.vue')
   }
 ];

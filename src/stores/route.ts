@@ -3,21 +3,21 @@ import { router, initRoutes, dynamicRoutes } from '@/router';
 import { getRouteNames, transformRouteToMenu } from '@/helpers/route';
 
 interface RouteState {
-  mode: 'static' | 'dynamic'; // 模式，static 前端声明的静态；dynamic 后端返回的动态
+  mode: 'remote' | 'dynamic'; // 模式，dynamic 前端动态导入；remote 后端远程获取
   isInit: boolean; // 是否初始化
   _home: string; // 路由首页的 name
   menus: MenuRecord[]; // 菜单
-  _cache: string[]; // 缓存的路由 name
+  caches: string[]; // 需要开启缓存的路由 name
 }
 
 export const useRouteStore = defineStore('route', {
   state(): RouteState {
     return {
-      mode: 'static',
+      mode: 'dynamic',
       isInit: false,
-      _home: 'login',
+      _home: 'dashboard',
       menus: [],
-      _cache: []
+      caches: []
     };
   },
   actions: {
@@ -28,7 +28,7 @@ export const useRouteStore = defineStore('route', {
     },
     // 重置路由表，保留初始路由
     resetRoutes() {
-      const routes: RouteRecord[] = router.getRoutes();
+      const routes: RouteRecord[] = router.getRoutes(); // getRoutes 得到的路由表是被展平的列表
       this.removeDynamicRoute(routes);
     },
     removeDynamicRoute(routes: RouteRecord[]) {
@@ -48,19 +48,20 @@ export const useRouteStore = defineStore('route', {
     },
     // 初始化异步路由
     async init() {
-      if (this.mode === 'static') {
-        await this.staticInit();
-      } else if (this.mode === 'dynamic') {
-        // TODO
+      if (this.mode === 'dynamic') {
+        await this.dynamicInit();
+      } else if (this.mode === 'remote') {
+        // TODO 获取远程路由表
       }
       this.isInit = true;
     },
     // static 模式初始化
-    async staticInit() {
+    async dynamicInit() {
       this.menus = transformRouteToMenu(dynamicRoutes);
       dynamicRoutes.forEach((route) => {
         router.addRoute(route);
       });
+      // TODO 需要开启缓存的路由
     }
   }
 });

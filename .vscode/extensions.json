@@ -6,6 +6,7 @@
     "usernamehw.errorlens",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
-    "antfu.unocss"
+    "antfu.unocss",
+    "Gruntfuggly.todo-tree"
   ]
 }
