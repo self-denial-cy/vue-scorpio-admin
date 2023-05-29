@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { setupRouterGuard } from './guard';
 import { initRoutes } from './routes';
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes: [...initRoutes]
 });
@@ -13,3 +13,6 @@ export default async function setupRouter(app: App) {
   setupRouterGuard(router);
   await router.isReady();
 }
+
+export * from './routes';
+export * from './modules';
