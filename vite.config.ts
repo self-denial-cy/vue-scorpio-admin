@@ -83,10 +83,9 @@ export default defineConfig({
       plugins: [
         Autoprefixer(),
         PostcssPxtorem({
-          rootValue: 192,
+          rootValue: 144,
           unitPrecision: 5,
-          propList: ['*', '!border'],
-          minPixelValue: 12
+          propList: ['*', '!border']
         })
       ]
     }
