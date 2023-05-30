@@ -7,6 +7,8 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "antfu.unocss",
-    "Gruntfuggly.todo-tree"
+    "Gruntfuggly.todo-tree",
+    "streetsidesoftware.code-spell-checker",
+    "aaron-bond.better-comments"
   ]
 }

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-// TODO
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>主页</div>
