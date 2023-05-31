@@ -7,3 +7,12 @@
   height: 100%;
   font-weight: normal;
 }
+a {
+  text-decoration: none;
+  transition: 0.4s;
+}
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160deg, 100%, 37%, 0.2);
+  }
+}
