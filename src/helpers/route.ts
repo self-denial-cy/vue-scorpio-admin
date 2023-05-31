@@ -33,7 +33,7 @@ export function transformRouteToMenu(routes: RouteRecordRaw[], parentPath?: stri
   routes.forEach((route) => {
     const { name, path, meta } = route;
     let children: MenuRecord[] = [];
-    const fullPath = `${parentPath ? `${parentPath}/` : ''}${path}`; // 考虑到子路由的 path 是相对 path 的情况
+    const fullPath = path.startsWith('/') ? path : `${parentPath ? `${parentPath}/` : ''}${path}`; // 考虑到子路由的 path 是相对 path 的情况
     if (route.children && route.children.length) {
       children = transformRouteToMenu(route.children, fullPath);
     }
@@ -46,7 +46,11 @@ export function transformRouteToMenu(routes: RouteRecordRaw[], parentPath?: stri
       children: children
     };
     if (!route.meta?.hidden) {
-      menus.push(menu); // 子路由会受父路由 hidden 的影响，如果父路由 hidden了，所有的子路由也会随之 hidden
+      if (!route.meta?._hidden) {
+        menus.push(menu);
+      } else {
+        menu.children?.forEach((child) => menus.push(child));
+      }
     }
   });
   return menus;

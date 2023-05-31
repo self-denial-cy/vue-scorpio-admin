@@ -6,6 +6,10 @@ export const record: RouteRecordRaw = {
   path: '/_dashboard',
   component: Main,
   redirect: '/dashboard',
+  meta: {
+    title: '主页',
+    _hidden: true
+  },
   children: [
     {
       name: 'dashboard',
