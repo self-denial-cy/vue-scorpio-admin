@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Icon } from '@/layout/shared';
+
 defineOptions({
   name: 'SidebarItem'
 });
@@ -13,13 +15,13 @@ defineProps<Props>();
 <template>
   <ElMenuItem v-if="!menu.children || !menu.children.length" :key="menu.key" :index="menu.path">
     <template #title>
-      <!-- TODO 菜单图标 -->
+      <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
       <span class="ellipsis">{{ menu.label }}</span>
     </template>
   </ElMenuItem>
   <ElSubMenu v-else :index="menu.path">
     <template #title>
-      <!-- TODO 菜单图标 -->
+      <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
       <span class="ellipsis">{{ menu.label }}</span>
     </template>
     <ElMenuItemGroup>

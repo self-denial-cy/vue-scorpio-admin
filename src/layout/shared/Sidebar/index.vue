@@ -16,8 +16,7 @@ const activeRoute = computed(() => route.path);
 <template>
   <div class="w-full h-full flex-col dark:bg-black sidebar">
     <Logo class="h-56px py-10px px-5px s-transition"></Logo>
-    <!-- TODO 这里滚动条有点问题，需要定高 -->
-    <ElScrollbar>
+    <ElScrollbar class="scrollbar">
       <ElMenu class="flex-1 b-0 p-5px" router :default-active="activeRoute">
         <SidebarItem v-for="menu in menus" :key="menu.key" :menu="menu"></SidebarItem>
       </ElMenu>
@@ -28,5 +27,8 @@ const activeRoute = computed(() => route.path);
 <style lang="less" scoped>
 .sidebar {
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+}
+.scrollbar {
+  height: calc(~'100% - 56px');
 }
 </style>

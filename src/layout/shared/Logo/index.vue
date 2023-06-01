@@ -15,6 +15,13 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <RouterLink to="/" class="flex justify-center items-center">
-    <div v-if="showTitle" class="c-#2d8cf0 text-16px font-bold break-keep">圣火喵喵</div>
+    <div v-if="showTitle" class="title text-16px font-bold break-keep">圣火喵喵</div>
   </RouterLink>
 </template>
+
+<style scoped>
+.title {
+  /* 提取 element-plus 的主题色 */
+  color: var(--el-color-primary);
+}
+</style>

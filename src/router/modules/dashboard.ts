@@ -16,7 +16,8 @@ export const record: RouteRecordRaw = {
       path: '/dashboard',
       component: () => import('@/views/dashboard/index.vue'),
       meta: {
-        title: '主页'
+        title: '主页',
+        icon: 'ep:home-filled'
       }
     }
   ]

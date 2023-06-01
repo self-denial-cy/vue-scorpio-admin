@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router';
-import { generateDynamicRoutes } from '@/helpers/route';
+import { generateDynamicRoutes } from '@/helpers';
 
 const modules = import.meta.glob('./**/*.ts', { eager: true }) as Record<string, { record: RouteRecordRaw }>;
 

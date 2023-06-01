@@ -1,6 +1,6 @@
 import type { RouteRecord, RouteRecordName } from 'vue-router';
 import { router, initRoutes, dynamicRoutes } from '@/router';
-import { getRouteNames, transformRouteToMenu, getCacheRouteNames } from '@/helpers/route';
+import { getRouteNames, transformRouteToMenu, getCacheRouteNames } from '@/helpers';
 
 interface RouteState {
   mode: 'remote' | 'dynamic'; // 模式，dynamic 前端动态导入；remote 后端远程获取

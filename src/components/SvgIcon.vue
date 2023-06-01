@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { getCssVar } from '@/helpers';
+
+defineOptions({
+  name: 'SvgIcon'
+});
+
 interface Props {
   prefix?: string;
   name?: string;
@@ -11,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   prefix: 'icon',
   name: '',
   fullname: '',
-  color: '#333',
+  color: getCssVar('--el-text-color-regular'), // 提取 element-plus 的主题色
   width: 16,
   height: 16
 });
