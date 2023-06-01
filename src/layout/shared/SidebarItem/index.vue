@@ -16,13 +16,13 @@ defineProps<Props>();
   <ElMenuItem v-if="!menu.children || !menu.children.length" :key="menu.key" :index="menu.path">
     <template #title>
       <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
-      <span class="ellipsis">{{ menu.label }}</span>
+      <span class="ellipsis font-bold">{{ menu.label }}</span>
     </template>
   </ElMenuItem>
   <ElSubMenu v-else :index="menu.path">
     <template #title>
       <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
-      <span class="ellipsis">{{ menu.label }}</span>
+      <span class="ellipsis font-bold">{{ menu.label }}</span>
     </template>
     <ElMenuItemGroup>
       <SidebarItem v-for="item in menu.children" :key="item.key" :menu="item"></SidebarItem>

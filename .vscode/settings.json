@@ -21,6 +21,10 @@
   "files.eol": "\n",
   "cSpell.words": [
     "amfe",
+    "backface",
+    "bottomleft",
+    "bottomright",
+    "callout",
     "commitlint",
     "fullname",
     "iconify",
@@ -33,6 +37,8 @@
     "rushstack",
     "stylelint",
     "taber",
+    "topleft",
+    "topright",
     "unocss",
     "unplugin"
   ]

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Logo, SidebarItem } from '@/layout/shared';
 import { useRouteStore } from '@/stores';
+import bennyJSON from '@/assets/animations/benny.json';
 
 defineOptions({
   name: 'Sidebar'
@@ -21,6 +22,9 @@ const activeRoute = computed(() => route.path);
         <SidebarItem v-for="menu in menus" :key="menu.key" :menu="menu"></SidebarItem>
       </ElMenu>
     </ElScrollbar>
+    <div class="h-234px">
+      <Lottie :animation-data="bennyJSON"></Lottie>
+    </div>
   </div>
 </template>
 
@@ -29,6 +33,6 @@ const activeRoute = computed(() => route.path);
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
 }
 .scrollbar {
-  height: calc(~'100% - 56px');
+  height: calc(~'100% - 290px');
 }
 </style>
