@@ -29,6 +29,7 @@
     "fullname",
     "iconify",
     "infile",
+    "nocheck",
     "nprogress",
     "optimizelegibility",
     "Parens",

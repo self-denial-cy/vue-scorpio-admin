@@ -1,11 +1,11 @@
 <script setup lang="ts">
-// TODO 展开收缩布局样式变化
 defineOptions({
   name: 'Base'
 });
 </script>
 
 <template>
+  <!-- TODO 折叠布局 -->
   <div class="flex h-full">
     <div class="fixed w-full h-56px z-1001 bg-white s-transition header" :class="{ expand: true }">
       <slot name="header"></slot>

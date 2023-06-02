@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Base, Sidebar, Footer } from '@/layout/shared';
+import { Base, Sidebar, Footer, Header } from '@/layout/shared';
 
 defineOptions({
   name: 'Main'
@@ -8,7 +8,9 @@ defineOptions({
 
 <template>
   <Base>
-    <template #header></template>
+    <template #header>
+      <Header></Header>
+    </template>
     <template #taber></template>
     <template #sidebar>
       <Sidebar></Sidebar>

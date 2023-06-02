@@ -5,7 +5,8 @@ defineOptions({
 </script>
 
 <template>
+  <!-- TODO 暗黑主题样式 -->
   <div class="flex justify-center items-center h-full dark:bg-dark">
-    <span class="text-size-14px">Copyright ©2023 Vue Scorpio Admin</span>
+    <span class="text-14px dark:text-dark-info">Copyright ©2023 Vue Scorpio Admin</span>
   </div>
 </template>

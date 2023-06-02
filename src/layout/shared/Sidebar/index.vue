@@ -15,6 +15,9 @@ const activeRoute = computed(() => route.path);
 </script>
 
 <template>
+  <!-- TODO 暗黑主题样式 -->
+  <!-- TODO 折叠布局 -->
+  <!-- TODO ElMenu 样式调整 -->
   <div class="w-full h-full flex-col dark:bg-black sidebar">
     <Logo class="h-56px py-10px px-5px s-transition"></Logo>
     <ElScrollbar class="scrollbar">
@@ -30,7 +33,7 @@ const activeRoute = computed(() => route.path);
 
 <style lang="less" scoped>
 .sidebar {
-  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.15);
 }
 .scrollbar {
   height: calc(~'100% - 290px');
