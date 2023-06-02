@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Collapse, Breadcrumb, Github } from '@/layout/shared';
+import { Collapse, Breadcrumb, Github, Fullscreen } from '@/layout/shared';
 
 defineOptions({
   name: 'Header'
@@ -14,6 +14,7 @@ defineOptions({
     </div>
     <div class="flex items-center justify-end gap-10px h-full">
       <Github></Github>
+      <Fullscreen></Fullscreen>
     </div>
   </div>
 </template>

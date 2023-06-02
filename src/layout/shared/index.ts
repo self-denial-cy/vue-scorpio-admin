@@ -9,5 +9,6 @@ import Collapse from './Collapse/index.vue';
 import Breadcrumb from './Breadcrumb/index.vue';
 import Github from './Github/index.vue';
 import HoverItem from './HoverItem/index.vue';
+import Fullscreen from './Fullscreen/index.vue';
 
-export { Base, Sidebar, Logo, SidebarItem, Icon, Footer, Header, Collapse, Breadcrumb, Github, HoverItem };
+export { Base, Sidebar, Logo, SidebarItem, Icon, Footer, Header, Collapse, Breadcrumb, Github, HoverItem, Fullscreen };

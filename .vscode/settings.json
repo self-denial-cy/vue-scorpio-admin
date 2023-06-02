@@ -41,6 +41,7 @@
     "topleft",
     "topright",
     "unocss",
-    "unplugin"
+    "unplugin",
+    "vueuse"
   ]
 }

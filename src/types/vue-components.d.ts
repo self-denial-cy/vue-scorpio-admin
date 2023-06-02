@@ -9,7 +9,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -20,12 +19,16 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     Exception: typeof import('./../components/Exception.vue')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
     IL403: typeof import('~icons/local/403')['default']
     IL404: typeof import('~icons/local/404')['default']
     IL500: typeof import('~icons/local/500')['default']
+    IMdiFullscreen: typeof import('~icons/mdi/fullscreen')['default']
+    IMdiFullscreenExit: typeof import('~icons/mdi/fullscreen-exit')['default']
+    IMdiGithub: typeof import('~icons/mdi/github')['default']
     Loading: typeof import('./../components/Loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

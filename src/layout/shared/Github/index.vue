@@ -12,6 +12,6 @@ function SiteJump() {
 
 <template>
   <HoverItem content="GitHub" class="w-40px h-full" @click="SiteJump">
-    <i-mdi-github class="text-22px"></i-mdi-github>
+    <i-mdi-github class="text-22px dark:c-dark-info"></i-mdi-github>
   </HoverItem>
 </template>
