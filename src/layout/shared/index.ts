@@ -10,5 +10,20 @@ import Breadcrumb from './Breadcrumb/index.vue';
 import Github from './Github/index.vue';
 import HoverItem from './HoverItem/index.vue';
 import Fullscreen from './Fullscreen/index.vue';
+import Theme from './Theme/index.vue';
 
-export { Base, Sidebar, Logo, SidebarItem, Icon, Footer, Header, Collapse, Breadcrumb, Github, HoverItem, Fullscreen };
+export {
+  Base,
+  Sidebar,
+  Logo,
+  SidebarItem,
+  Icon,
+  Footer,
+  Header,
+  Collapse,
+  Breadcrumb,
+  Github,
+  HoverItem,
+  Fullscreen,
+  Theme
+};
