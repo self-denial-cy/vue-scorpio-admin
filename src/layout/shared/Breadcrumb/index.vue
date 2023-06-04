@@ -15,10 +15,10 @@ const breadcrumbs = computed(() => getBreadcrumbs(route.name, menus));
 <template>
   <ElBreadcrumb>
     <ElBreadcrumbItem v-for="item in breadcrumbs" :key="item.key">
-      <ElIcon v-if="item.icon" class="w-16px! h-16px! vertical-bottom">
+      <ElIcon v-if="item.icon" class="w-16px! h-16px! vertical-bottom dark:c-dark-info">
         <Icon :icon="item.icon"></Icon>
       </ElIcon>
-      <span class="pl-2px">{{ item.label }}</span>
+      <span class="pl-2px dark:c-dark-info">{{ item.label }}</span>
     </ElBreadcrumbItem>
   </ElBreadcrumb>
 </template>

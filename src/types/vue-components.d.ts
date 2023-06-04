@@ -29,6 +29,8 @@ declare module '@vue/runtime-core' {
     IMdiFullscreen: typeof import('~icons/mdi/fullscreen')['default']
     IMdiFullscreenExit: typeof import('~icons/mdi/fullscreen-exit')['default']
     IMdiGithub: typeof import('~icons/mdi/github')['default']
+    IMdiWeatherNight: typeof import('~icons/mdi/weather-night')['default']
+    IMdiWeatherSunny: typeof import('~icons/mdi/weather-sunny')['default']
     Loading: typeof import('./../components/Loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

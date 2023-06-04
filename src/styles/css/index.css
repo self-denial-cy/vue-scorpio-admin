@@ -14,6 +14,6 @@ a {
 @media (hover: hover) {
   a:hover {
     /* TODO 换个好看的 hover 效果 */
-    background-color: hsla(160deg, 100%, 37%, 0.2);
+    /* background-color: hsla(160deg, 100%, 37%, 0.2); */
   }
 }
