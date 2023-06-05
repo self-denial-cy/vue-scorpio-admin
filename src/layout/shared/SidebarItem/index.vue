@@ -14,8 +14,8 @@ defineProps<Props>();
 
 <template>
   <ElMenuItem v-if="!menu.children || !menu.children.length" :key="menu.key" :index="menu.path">
+    <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
     <template #title>
-      <ElIcon v-if="menu.icon"><Icon :icon="menu.icon"></Icon></ElIcon>
       <span class="ellipsis font-bold">{{ menu.label }}</span>
     </template>
   </ElMenuItem>

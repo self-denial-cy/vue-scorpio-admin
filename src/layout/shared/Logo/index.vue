@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// TODO 展开收缩布局样式变化
 defineOptions({
   name: 'Logo'
 });
@@ -15,7 +14,8 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <RouterLink to="/" class="flex justify-center items-center">
-    <div v-if="showTitle" class="title text-16px font-bold break-keep">圣火喵喵</div>
+    <ElIcon class="w-24px! h-24px!"><Logo class="text-24px"></Logo></ElIcon>
+    <div v-if="showTitle" class="title pl-5px text-18px font-bold break-keep">圣火喵喵</div>
   </RouterLink>
 </template>
 
