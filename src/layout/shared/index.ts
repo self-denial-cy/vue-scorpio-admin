@@ -12,6 +12,7 @@ import HoverItem from './HoverItem/index.vue';
 import Fullscreen from './Fullscreen/index.vue';
 import Theme from './Theme/index.vue';
 import Avatar from './Avatar/index.vue';
+import Taber from './Taber/index.vue';
 
 export {
   Base,
@@ -27,5 +28,6 @@ export {
   HoverItem,
   Fullscreen,
   Theme,
-  Avatar
+  Avatar,
+  Taber
 };

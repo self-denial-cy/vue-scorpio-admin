@@ -7,3 +7,6 @@ type MenuRecord = {
   icon?: string;
   children?: Array<MenuRecord>;
 };
+
+// 多页签 Tab 项
+type TabRecord = Pick<import('vue-router').RouteLocationNormalizedLoaded, 'name' | 'meta' | 'fullPath'>;
