@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Collapse, Breadcrumb, Github, Fullscreen, Theme } from '@/layout/shared';
+import { Collapse, Breadcrumb, Github, Fullscreen, Theme, Avatar } from '@/layout/shared';
 
 defineOptions({
   name: 'Header'
@@ -16,6 +16,7 @@ defineOptions({
       <Github></Github>
       <Fullscreen></Fullscreen>
       <Theme></Theme>
+      <Avatar></Avatar>
     </div>
   </div>
 </template>

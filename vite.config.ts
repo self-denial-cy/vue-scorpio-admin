@@ -76,14 +76,14 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use '@/styles/scss/index.scss' as *;`
+        additionalData: `@use '@/styles/scss/overwrite/index.scss' as *;`
       }
     },
     postcss: {
       plugins: [
         Autoprefixer(),
         PostcssPxtorem({
-          rootValue: 192,
+          rootValue: 144,
           unitPrecision: 5,
           propList: ['*', '!border']
         })

@@ -11,6 +11,7 @@ import Github from './Github/index.vue';
 import HoverItem from './HoverItem/index.vue';
 import Fullscreen from './Fullscreen/index.vue';
 import Theme from './Theme/index.vue';
+import Avatar from './Avatar/index.vue';
 
 export {
   Base,
@@ -25,5 +26,6 @@ export {
   Github,
   HoverItem,
   Fullscreen,
-  Theme
+  Theme,
+  Avatar
 };

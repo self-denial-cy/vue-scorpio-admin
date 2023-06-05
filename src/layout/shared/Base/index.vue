@@ -10,6 +10,7 @@ const { collapse } = $(useCollapseStore());
 
 <template>
   <!-- TODO 暗黑主题样式 -->
+  <!-- TODO bg-white? -->
   <div class="flex h-full">
     <div class="fixed w-full h-56px z-1001 bg-white s-transition header" :class="{ expand: !collapse }">
       <slot name="header"></slot>

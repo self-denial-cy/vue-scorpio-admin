@@ -4,6 +4,7 @@ import 'virtual:uno.css';
 import 'nprogress/nprogress.css';
 
 import './styles/css/index.css';
+import './styles/scss/index.scss';
 import App from './App.vue';
 import setupRouter from './router';
 import setupExternal from './external';
