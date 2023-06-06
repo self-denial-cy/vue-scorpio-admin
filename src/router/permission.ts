@@ -31,7 +31,7 @@ export async function routePermission(
   }
   // 外链路由
   if (to.meta._href) {
-    window.open(to.meta._href);
+    window.open(to.meta._href, '_blank');
     return { path: from.path, query: from.query, replace: true, hash: from.hash };
   }
 }

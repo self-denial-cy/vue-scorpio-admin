@@ -2,6 +2,8 @@
 defineOptions({
   name: 'Taber'
 });
+
+useRoute();
 </script>
 
 <template>
