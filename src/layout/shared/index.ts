@@ -14,6 +14,7 @@ import Theme from './Theme/index.vue';
 import Avatar from './Avatar/index.vue';
 import Taber from './Taber/index.vue';
 import Tabs from './Tabs/index.vue';
+import Reload from './Reload/index.vue';
 
 export {
   Base,
@@ -31,5 +32,6 @@ export {
   Theme,
   Avatar,
   Taber,
-  Tabs
+  Tabs,
+  Reload
 };

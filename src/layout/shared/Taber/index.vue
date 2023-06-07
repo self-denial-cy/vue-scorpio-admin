@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTabStore } from '@/stores';
-import { Tabs } from '@/layout/shared';
+import { Tabs, Reload } from '@/layout/shared';
 
 defineOptions({
   name: 'Taber'
@@ -28,6 +28,7 @@ watch(
         <Tabs></Tabs>
       </BetterScroll>
     </div>
+    <Reload></Reload>
   </div>
 </template>
 

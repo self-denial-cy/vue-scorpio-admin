@@ -30,6 +30,7 @@ declare module '@vue/runtime-core' {
     Exception: typeof import('./../components/Exception.vue')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
+    IEpRefresh: typeof import('~icons/ep/refresh')['default']
     IL403: typeof import('~icons/local/403')['default']
     IL404: typeof import('~icons/local/404')['default']
     IL500: typeof import('~icons/local/500')['default']
