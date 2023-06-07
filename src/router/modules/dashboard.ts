@@ -8,7 +8,8 @@ export const record: RouteRecordRaw = {
   redirect: '/dashboard',
   meta: {
     title: '主页',
-    _hidden: true
+    _hidden: true,
+    sort: 0
   },
   children: [
     {
@@ -17,7 +18,8 @@ export const record: RouteRecordRaw = {
       component: () => import('@/views/dashboard/index.vue'),
       meta: {
         title: '主页',
-        icon: 'ep:home-filled'
+        icon: 'ep:home-filled',
+        isHome: true
       }
     }
   ]

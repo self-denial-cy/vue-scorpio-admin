@@ -10,5 +10,6 @@ declare module 'vue-router' {
     cache?: boolean; // 是否开启缓存
     hidden?: boolean; // 是否在菜单中隐藏，会连带子路由一起隐藏
     _hidden?: boolean; // 是否在菜单中隐藏，只隐藏自身，不影响子路由
+    isHome?: boolean; // 是否是主页，影响在 Tab 中是否可删除
   }
 }

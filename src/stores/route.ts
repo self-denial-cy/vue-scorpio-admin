@@ -1,6 +1,7 @@
 import type { RouteRecord, RouteRecordName } from 'vue-router';
 import { router, initRoutes, dynamicRoutes } from '@/router';
 import { getRouteNames, transformRouteToMenu, getCacheRouteNames } from '@/helpers';
+import { useTabStore } from '@/stores';
 
 interface RouteState {
   mode: 'remote' | 'dynamic'; // 模式，dynamic 前端动态导入；remote 后端远程获取
@@ -53,6 +54,8 @@ export const useRouteStore = defineStore('route', {
       } else if (this.mode === 'remote') {
         // TODO 获取远程路由表
       }
+      const { initHomeTab } = useTabStore();
+      initHomeTab(this._home, router); // 初始化首页页签
       this.isInit = true;
     },
     // dynamic 模式初始化

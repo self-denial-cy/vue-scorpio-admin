@@ -1,6 +1,13 @@
-import { clearTabs as _clearTabs, setTabs, getTabRecordByRoute, isInTabsByFullPath } from '@/helpers';
+import {
+  clearTabs as _clearTabs,
+  setTabs,
+  getTabRecordByRoute,
+  isInTabsByFullPath,
+  getTabs,
+  getIndexByRouteName
+} from '@/helpers';
 import { useRouterPush } from '@/composables';
-import type { RouteLocationNormalizedLoaded } from 'vue-router';
+import type { RouteLocationNormalizedLoaded, Router } from 'vue-router';
 
 interface TabState {
   tabs: TabRecord[]; // 多页签数组
@@ -89,6 +96,37 @@ export const useTabStore = defineStore('tab', {
         const { routerPush } = useRouterPush(false);
         routerPush(fullPath);
       }
+    },
+    // 初始化首页页签
+    initHomeTab(homeName: string, router: Router) {
+      const routes = router.getRoutes(); // getRoutes 得到的路由表是被展平的列表
+      const homeRoute = routes.find((route) => route.name === homeName);
+      if (homeRoute && (!homeRoute.children || !homeRoute.children.length)) {
+        // 有子路由不能作为 Tab
+        this._home = getTabRecordByRoute(homeRoute);
+      }
+    },
+    // 初始化
+    init(currentRoute: RouteLocationNormalizedLoaded) {
+      // const tabs: TabRecord[] = []; // 不缓存多页签
+      const tabs: TabRecord[] = getTabs(); // 缓存多页签
+      const hasHome = getIndexByRouteName(tabs, this._home.name as string) > -1;
+      if (!hasHome && this._home.name !== 'root') {
+        // 如果缓存的多页签数据中没有首页页签且首页页签已经初始化了
+        tabs.unshift(this._home);
+      }
+      const isHome = currentRoute.fullPath === this._home.fullPath;
+      if (!isHome) {
+        // 页面初始访问的不是首页
+        const record = getTabRecordByRoute(currentRoute);
+        const hasCurrent = isInTabsByFullPath(tabs, record.fullPath);
+        if (!hasCurrent) {
+          // 且访问的页面不在多页签中【直接通过 URL 访问】
+          tabs.push(record);
+        }
+      }
+      this.tabs = tabs;
+      this.setActive(currentRoute.fullPath);
     }
   }
 });

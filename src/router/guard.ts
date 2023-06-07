@@ -11,7 +11,7 @@ export function setupRouterGuard(router: Router) {
   });
 
   router.afterEach((to, from) => {
-    console.log(from, to);
+    console.table({ from, to });
     NProgress.done();
   });
 }

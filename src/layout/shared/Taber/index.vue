@@ -1,13 +1,34 @@
 <script setup lang="ts">
+import { useTabStore } from '@/stores';
+import { Tabs } from '@/layout/shared';
+
 defineOptions({
   name: 'Taber'
 });
 
-useRoute();
+const route = useRoute();
+const tabStore = useTabStore();
+tabStore.init(route); // 初始化 Tab Store
+
+// 监听当前路由的 fullPath，以更新 Tab Store
+watch(
+  () => route.fullPath,
+  () => {
+    tabStore.addTab(route);
+    tabStore.setActive(route.fullPath);
+  }
+);
 </script>
 
 <template>
-  <div class="taber h-full flex flex-1 justify-between overflow-hidden dark:bg-dark"></div>
+  <div class="taber h-full flex flex-1 justify-between overflow-hidden dark:bg-dark">
+    <div class="flex-1 overflow-hidden h-full">
+      <!-- TODO 优化 scroll 效果 -->
+      <BetterScroll :options="{ scrollX: true, scrollY: false, click: true }">
+        <Tabs></Tabs>
+      </BetterScroll>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>

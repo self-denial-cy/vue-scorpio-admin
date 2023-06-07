@@ -1,15 +1,22 @@
 import { setLocal, getLocal } from '@/utils';
 import { StorageKey } from '@/enum';
-import type { RouteLocationNormalizedLoaded } from 'vue-router';
+import type { RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router';
 
 // 根据 route 获取 TabRecord
-export function getTabRecordByRoute(route: RouteLocationNormalizedLoaded) {
+export function getTabRecordByRoute(route: RouteLocationNormalizedLoaded | RouteRecordNormalized) {
   const record: TabRecord = {
     name: route.name,
     meta: route.meta,
-    fullPath: route.fullPath || route.path
+    fullPath: hasFullPath(route) ? route.fullPath : route.path
   };
   return record;
+}
+
+// 类型守卫
+function hasFullPath(
+  route: RouteLocationNormalizedLoaded | RouteRecordNormalized
+): route is RouteLocationNormalizedLoaded {
+  return !!(route as RouteLocationNormalizedLoaded).fullPath;
 }
 
 // 获取页签在多页签中的索引【根据路由名称】

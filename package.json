@@ -20,6 +20,7 @@
     "stylelint": "stylelint \"src/**/*.{vue,less,scss,css}\" --ignore-path .gitignore"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.5.1",
     "@vueuse/core": "^10.1.2",
     "amfe-flexible": "^2.2.1",
     "crypto-js": "^4.1.1",

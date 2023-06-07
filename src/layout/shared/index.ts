@@ -13,6 +13,7 @@ import Fullscreen from './Fullscreen/index.vue';
 import Theme from './Theme/index.vue';
 import Avatar from './Avatar/index.vue';
 import Taber from './Taber/index.vue';
+import Tabs from './Tabs/index.vue';
 
 export {
   Base,
@@ -29,5 +30,6 @@ export {
   Fullscreen,
   Theme,
   Avatar,
-  Taber
+  Taber,
+  Tabs
 };
