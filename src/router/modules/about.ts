@@ -1,10 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router';
-import { Main } from '@/layout';
+import { Blank } from '@/layout';
 
 export const record: RouteRecordRaw = {
   name: '_about',
   path: '/_about',
-  component: Main,
+  component: Blank,
   redirect: '/about',
   meta: {
     title: '关于',
