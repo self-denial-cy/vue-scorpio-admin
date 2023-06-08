@@ -58,11 +58,11 @@ export function transformRouteToMenu(routes: RouteRecordRaw[], parentPath?: stri
 
 // 递归获取需要缓存的路由【这里收集的是路由的 name，要保证组件的 name 与路由 name 一致才有效】
 export function getCacheRouteNames(routes: RouteRecordRaw[]) {
-  const cacheNames: Array<string | symbol> = [];
-  function each(routes: RouteRecordRaw[], cacheNames: Array<string | symbol>) {
+  const cacheNames: string[] = [];
+  function each(routes: RouteRecordRaw[], cacheNames: string[]) {
     routes.forEach((route) => {
       if (route.meta?.cache && route.name) {
-        cacheNames.push(route.name);
+        cacheNames.push(route.name as string);
       }
       if (route.children && route.children.length) {
         each(route.children, cacheNames);

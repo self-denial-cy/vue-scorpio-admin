@@ -33,7 +33,7 @@ const activeRoute = computed(() => route.path);
 
 <style lang="less" scoped>
 .sidebar {
-  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   :deep(.el-menu) {
     border-right: none;

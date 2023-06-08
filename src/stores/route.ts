@@ -8,7 +8,7 @@ interface RouteState {
   isInit: boolean; // 是否初始化
   _home: string; // 路由首页的 name
   menus: MenuRecord[]; // 菜单
-  caches: Array<string | symbol>; // 需要开启缓存的路由 name
+  caches: string[]; // 需要开启缓存的路由 name
 }
 
 export const useRouteStore = defineStore('route', {

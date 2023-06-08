@@ -15,6 +15,7 @@ import Avatar from './Avatar/index.vue';
 import Taber from './Taber/index.vue';
 import Tabs from './Tabs/index.vue';
 import Reload from './Reload/index.vue';
+import Bulk from './Bulk/index.vue';
 
 export {
   Base,
@@ -33,5 +34,6 @@ export {
   Avatar,
   Taber,
   Tabs,
-  Reload
+  Reload,
+  Bulk
 };
