@@ -36,6 +36,7 @@ module.exports = {
     'no-unused-vars': 0,
     'vue/multi-word-component-names': 0,
     'vue/no-reserved-component-names': 0,
+    'vue/component-definition-name-casing': 0,
     '@typescript-eslint/no-unused-vars': 0
   }
 };
