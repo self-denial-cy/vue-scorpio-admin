@@ -83,7 +83,7 @@ export function useECharts(options: Ref<ECOption> | ComputedRef<ECOption>, fn?: 
     render();
   }
 
-  const stopSizeWatch = watch([width, height], ([newWidth, newHeight]) => {
+  const stopSizeWatch = watch([$$(width), $$(height)], ([newWidth, newHeight]) => {
     initialSize.width = newWidth;
     initialSize.height = newHeight;
     if (newWidth === 0 && newHeight === 0) {
