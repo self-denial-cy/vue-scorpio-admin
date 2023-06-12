@@ -10,7 +10,7 @@ const { caches } = $(useRouteStore());
 </script>
 
 <template>
-  <div class="p-8px h-full bg-#f6f9f8 dark:bg-#101014">
+  <div class="p-16px h-full bg-#f6f9f8 dark:bg-#101014">
     <RouterView v-slot="{ Component, route }">
       <Transition name="fade" mode="out-in" appear>
         <KeepAlive :include="caches">

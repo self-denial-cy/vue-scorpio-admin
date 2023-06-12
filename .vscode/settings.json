@@ -28,6 +28,7 @@
     "ciphertext",
     "commitlint",
     "composables",
+    "echarts",
     "fullname",
     "iconify",
     "infile",
@@ -44,6 +45,7 @@
     "topright",
     "unocss",
     "unplugin",
+    "unref",
     "vueuse"
   ]
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CardGroup } from './components';
+import { CardGroup, Chart } from './components';
 
 defineOptions({
   name: 'dashboard' // 保证与路由 name 一致，且开启缓存
@@ -7,7 +7,6 @@ defineOptions({
 </script>
 
 <template>
-  <ElSpace class="w-full" direction="vertical">
-    <CardGroup></CardGroup>
-  </ElSpace>
+  <CardGroup></CardGroup>
+  <Chart class="mt-16px"></Chart>
 </template>

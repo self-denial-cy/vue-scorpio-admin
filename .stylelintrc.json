@@ -289,6 +289,8 @@
       "-webkit-overflow-scrolling",
       "-webkit-text-fill-color",
       "-webkit-tap-highlight-color"
-    ]
+    ],
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": null
   }
 }

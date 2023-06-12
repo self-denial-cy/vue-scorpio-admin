@@ -24,6 +24,7 @@
     "@vueuse/core": "^10.1.2",
     "amfe-flexible": "^2.2.1",
     "crypto-js": "^4.1.1",
+    "echarts": "^5.4.2",
     "element-plus": "^2.3.5",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.36",
