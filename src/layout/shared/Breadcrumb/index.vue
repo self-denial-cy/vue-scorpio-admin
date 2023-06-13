@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRouteStore } from '@/stores';
 import { getBreadcrumbs } from '@/helpers';
-import { Icon } from '@/layout/shared';
 
 defineOptions({
   name: 'Breadcrumb'
@@ -18,7 +17,7 @@ const breadcrumbs = computed(() => getBreadcrumbs(route.name, menus));
       <ElIcon v-if="item.icon" class="w-16px! h-16px! vertical-bottom dark:c-dark-info">
         <Icon :icon="item.icon"></Icon>
       </ElIcon>
-      <span class="pl-2px dark:c-dark-info">{{ item.label }}</span>
+      <span class="pl-4px dark:c-dark-info">{{ item.label }}</span>
     </ElBreadcrumbItem>
   </ElBreadcrumb>
 </template>

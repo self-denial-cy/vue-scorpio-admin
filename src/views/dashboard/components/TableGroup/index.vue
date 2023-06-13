@@ -23,8 +23,20 @@ const statisticsTables: StatisticsTable[] = [
 
 <template>
   <ElCard>
-    <ElTabs model-value="home" stretch class="flex flex-col">
-      <ElTabPane v-for="item in statisticsTables" :key="item.id" :name="item.id"></ElTabPane>
+    <ElTabs model-value="home" stretch>
+      <ElTabPane v-for="item in statisticsTables" :key="item.id" :name="item.id">
+        <template #label>
+          <span>
+            <ElIcon class="w-18px! h-18px! vertical-sub">
+              <Icon :icon="item.icon" class="text-18px"></Icon>
+            </ElIcon>
+            <span class="ml-8px">{{ item.label }}</span>
+          </span>
+        </template>
+        <div>
+          <component :is="item.component"></component>
+        </div>
+      </ElTabPane>
     </ElTabs>
   </ElCard>
 </template>

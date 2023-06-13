@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useTabStore } from '@/stores';
-import { Icon } from '@/layout/shared';
 import type { TabsPaneContext, TabPaneName } from 'element-plus';
 
 defineOptions({

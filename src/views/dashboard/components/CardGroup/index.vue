@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { GradientBg } from './components';
-import { Icon } from '@/layout/shared';
 
 defineOptions({
   name: 'CardGroup'
