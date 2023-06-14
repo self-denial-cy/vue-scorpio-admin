@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    ElLink: typeof import('element-plus/es')['ElLink']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
@@ -41,7 +42,9 @@ declare module '@vue/runtime-core' {
     IEpApple: typeof import('~icons/ep/apple')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
+    IEpLink: typeof import('~icons/ep/link')['default']
     IEpRefresh: typeof import('~icons/ep/refresh')['default']
+    IEpWindPower: typeof import('~icons/ep/wind-power')['default']
     IL403: typeof import('~icons/local/403')['default']
     IL404: typeof import('~icons/local/404')['default']
     IL500: typeof import('~icons/local/500')['default']
@@ -55,6 +58,7 @@ declare module '@vue/runtime-core' {
     Logo: typeof import('./../components/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SiteLink: typeof import('./../components/SiteLink.vue')['default']
     SvgIcon: typeof import('./../components/SvgIcon.vue')['default']
   }
 }

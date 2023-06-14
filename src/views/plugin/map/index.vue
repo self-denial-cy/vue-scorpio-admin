@@ -2,10 +2,6 @@
 import type { Component } from 'vue';
 import { BaiduMap, GaodeMap } from './components';
 
-defineOptions({
-  name: 'map'
-});
-
 interface Map {
   id: string;
   label: string;
@@ -32,7 +28,7 @@ const maps: Map[] = [
       <template #header>
         <span class="text-18px">百度地图/高德地图</span>
       </template>
-      <ElTabs model-value="baidu" class="h-full flex flex-col">
+      <ElTabs model-value="gaode" class="h-full flex flex-col">
         <ElTabPane v-for="item in maps" :key="item.id" class="h-full" :label="item.label" :name="item.id">
           <div class="h-full">
             <component :is="item.component"></component>

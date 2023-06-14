@@ -39,6 +39,15 @@ export const record: RouteRecordRaw = {
         icon: 'ep:map-location'
       },
       component: () => import('@/views/plugin/map/index.vue')
+    },
+    {
+      path: 'swiper',
+      name: 'swiper',
+      meta: {
+        title: 'Swiper',
+        icon: 'ep:film'
+      },
+      component: () => import('@/views/plugin/swiper/index.vue')
     }
   ]
 };
