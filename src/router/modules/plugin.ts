@@ -48,6 +48,15 @@ export const record: RouteRecordRaw = {
         icon: 'ep:film'
       },
       component: () => import('@/views/plugin/swiper/index.vue')
+    },
+    {
+      path: 'clipboard',
+      name: 'clipboard',
+      meta: {
+        title: '剪切板',
+        icon: 'mdi:clipboard-text'
+      },
+      component: () => import('@/views/plugin/clipboard/index.vue')
     }
   ]
 };

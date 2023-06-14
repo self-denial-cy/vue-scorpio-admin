@@ -23,7 +23,7 @@ const maps: Map[] = [
 </script>
 
 <template>
-  <div class="h-full map">
+  <div class="h-1000px map">
     <ElCard class="h-full flex flex-col">
       <template #header>
         <span class="text-18px">百度地图/高德地图</span>
