@@ -86,6 +86,15 @@ export const record: RouteRecordRaw = {
           component: () => import('@/views/plugin/editor/rich/index.vue')
         }
       ]
+    },
+    {
+      path: 'video',
+      name: 'video',
+      meta: {
+        title: '视频',
+        icon: 'mdi:video-vintage'
+      },
+      component: () => import('@/views/plugin/video/index.vue')
     }
   ]
 };
