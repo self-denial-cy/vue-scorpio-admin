@@ -30,9 +30,11 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.36",
     "swiper": "^8.4.5",
+    "vditor": "^3.9.3",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0",
-    "vue3-lottie": "^2.7.0"
+    "vue3-lottie": "^2.7.0",
+    "wangeditor": "^4.7.15"
   },
   "devDependencies": {
     "@amap/amap-jsapi-types": "^0.0.13",

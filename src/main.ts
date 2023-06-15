@@ -8,11 +8,13 @@ import './styles/scss/index.scss';
 import App from './App.vue';
 import setupRouter from './router';
 import setupExternal from './external';
+import setupDirectives from './directives';
 
 async function setupApp() {
   const app = createApp(App);
   app.use(createPinia());
   setupExternal(app);
+  setupDirectives(app);
   await setupRouter(app);
   app.mount('#app');
 }

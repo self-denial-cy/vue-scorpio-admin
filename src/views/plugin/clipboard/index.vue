@@ -51,7 +51,7 @@ function handleMethodCopy() {
               <i-ep-document-copy class="text-16px"></i-ep-document-copy>
             </ElIcon>
           </ElButton>
-          <ElButton v-if="type === 'directive'" size="large">
+          <ElButton v-if="type === 'directive'" v-clipboard="text" size="large">
             <ElIcon class="w-16px! h-16px!">
               <i-ep-document-copy class="text-16px"></i-ep-document-copy>
             </ElIcon>

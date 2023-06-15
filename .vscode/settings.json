@@ -54,7 +54,9 @@
     "unocss",
     "unplugin",
     "unref",
+    "vditor",
     "VITE",
-    "vueuse"
+    "vueuse",
+    "wangeditor"
   ]
 }

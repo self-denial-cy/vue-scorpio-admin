@@ -57,6 +57,35 @@ export const record: RouteRecordRaw = {
         icon: 'mdi:clipboard-text'
       },
       component: () => import('@/views/plugin/clipboard/index.vue')
+    },
+    {
+      path: 'editor',
+      name: 'editor',
+      redirect: '/plugin/editor/markdown',
+      meta: {
+        title: '编辑器',
+        icon: 'mdi:circle-edit-outline'
+      },
+      children: [
+        {
+          path: 'markdown',
+          name: 'markdown',
+          meta: {
+            title: 'Markdown',
+            icon: 'mdi:language-markdown-outline'
+          },
+          component: () => import('@/views/plugin/editor/markdown/index.vue')
+        },
+        {
+          path: 'rich',
+          name: 'rich',
+          meta: {
+            title: '富文本',
+            icon: 'mdi:file-document-edit-outline'
+          },
+          component: () => import('@/views/plugin/editor/rich/index.vue')
+        }
+      ]
     }
   ]
 };
