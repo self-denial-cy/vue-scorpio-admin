@@ -95,6 +95,15 @@ export const record: RouteRecordRaw = {
         icon: 'mdi:video-vintage'
       },
       component: () => import('@/views/plugin/video/index.vue')
+    },
+    {
+      path: 'excel',
+      name: 'excel',
+      meta: {
+        title: 'Excel 导入',
+        icon: 'mdi:microsoft-excel'
+      },
+      component: () => import('@/views/plugin/excel/index.vue')
     }
   ]
 };

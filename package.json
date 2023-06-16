@@ -24,9 +24,11 @@
     "@better-scroll/core": "^2.5.1",
     "@vueuse/core": "^10.1.2",
     "amfe-flexible": "^2.2.1",
+    "canvas-datagrid": "^0.4.6",
     "crypto-js": "^4.1.1",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.5",
+    "handsontable": "^12.4.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.36",
     "swiper": "^8.4.5",
@@ -35,7 +37,8 @@
     "vue-router": "^4.2.0",
     "vue3-lottie": "^2.7.0",
     "wangeditor": "^4.7.15",
-    "xgplayer": "^3.0.4"
+    "xgplayer": "^3.0.4",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@amap/amap-jsapi-types": "^0.0.13",

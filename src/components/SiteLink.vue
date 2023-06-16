@@ -6,6 +6,8 @@ defineOptions({
 interface Props {
   label: string; // 站点名称
   href: string; // 站点链接
+  text?: string;
+  self?: boolean;
 }
 
 defineProps<Props>();
@@ -14,9 +16,9 @@ defineProps<Props>();
 <template>
   <div class="inline-block flex items-center">
     <span class="text-16px mr-8px">{{ label }}</span>
-    <ElLink type="primary" :href="href" target="_blank">
+    <ElLink type="primary" :href="href" :target="self ? '_self' : '_blank'">
       <template #default>
-        <span class="text-16px mr-4px">{{ href }}</span>
+        <span class="text-16px mr-4px">{{ text ? text : href }}</span>
       </template>
       <template #icon>
         <ElIcon class="w-16px! h-16px!">
