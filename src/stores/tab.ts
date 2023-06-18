@@ -8,6 +8,7 @@ import {
 } from '@/helpers';
 import { useRouterPush } from '@/composables';
 import type { RouteLocationNormalizedLoaded, Router } from 'vue-router';
+import { router } from '@/router';
 
 interface TabState {
   tabs: TabRecord[]; // 多页签数组
@@ -108,8 +109,8 @@ export const useTabStore = defineStore('tab', {
     },
     // 初始化
     init(currentRoute: RouteLocationNormalizedLoaded) {
-      // const tabs: TabRecord[] = []; // 不缓存多页签
-      const tabs: TabRecord[] = getTabs(); // 缓存多页签
+      // let tabs: TabRecord[] = []; // 不缓存多页签
+      let tabs: TabRecord[] = getTabs(); // 缓存多页签
       const hasHome = getIndexByRouteName(tabs, this._home.name as string) > -1;
       if (!hasHome && this._home.name !== 'root') {
         // 如果缓存的多页签数据中没有首页页签且首页页签已经初始化了
@@ -125,8 +126,15 @@ export const useTabStore = defineStore('tab', {
           tabs.push(record);
         }
       }
+
+      // 切换用户角色时，失去访问权限的菜单不应出现在 Tab 中
+      const routes = router.getRoutes();
+      tabs = tabs.filter((tab) => routes.some((route) => route.name === tab.name));
+      // 当前激活的 tab 也要确保在可访问菜单中，否则回滚至主页
+      const activeTab = tabs.some((tab) => tab.name === currentRoute.name) ? currentRoute : this._home;
+
       this.tabs = tabs;
-      this.setActive(currentRoute.fullPath);
+      this.setActive(activeTab.fullPath);
     }
   }
 });

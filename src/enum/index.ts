@@ -1,6 +1,8 @@
 // Storage Key
 export enum StorageKey {
-  tabs = '__TABS__'
+  tabs = '__TABS__',
+  token = '__TOKEN__',
+  userInfo = '__USER_INFO__'
 }
 
 // 数据类型
@@ -18,4 +20,11 @@ export enum DataType {
   map = '[object Map]',
   file = '[object File]',
   function = 'function'
+}
+
+// 角色枚举
+export enum Role {
+  super = '超级管理员',
+  admin = '管理员',
+  user = '普通用户'
 }

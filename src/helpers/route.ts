@@ -72,3 +72,24 @@ export function getCacheRouteNames(routes: RouteRecordRaw[]) {
   each(routes, cacheNames);
   return cacheNames;
 }
+
+// 根据用户角色和菜单 permissions 过滤用户可访问的菜单
+export function filterRoutesByUserRole(routes: RouteRecordRaw[], role: RoleType): RouteRecordRaw[] {
+  const records: RouteRecordRaw[] = [];
+  routes.forEach((route) => {
+    const { meta } = route;
+    let children: RouteRecordRaw[] = [];
+    if (route.children && route.children.length) {
+      children = filterRoutesByUserRole(route.children, role);
+    }
+    const record: RouteRecordRaw = {
+      ...route,
+      children: children
+    };
+    // 路由没有配置权限 or 当前用户超级管理员 or 用户可访问该菜单
+    if (!meta?.permissions || role === 'super' || meta.permissions.includes(role)) {
+      records.push(record);
+    }
+  });
+  return records;
+}
