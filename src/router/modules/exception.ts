@@ -19,7 +19,7 @@ export const record: RouteRecordRaw = {
         title: '403',
         icon: 'mdi:eye-lock-outline'
       },
-      component: () => import('@/views/403/index.vue')
+      component: () => import('@/views/exception/403/index.vue')
     },
     {
       path: '404',
@@ -28,7 +28,7 @@ export const record: RouteRecordRaw = {
         title: '404',
         icon: 'mdi:eye-off-outline'
       },
-      component: () => import('@/views/404/index.vue')
+      component: () => import('@/views/exception/404/index.vue')
     },
     {
       path: '500',
@@ -37,7 +37,16 @@ export const record: RouteRecordRaw = {
         title: '500',
         icon: 'mdi:close-octagon-outline'
       },
-      component: () => import('@/views/500/index.vue')
+      component: () => import('@/views/exception/500/index.vue')
+    },
+    {
+      path: 'other',
+      name: 'other',
+      meta: {
+        title: '更多',
+        icon: 'mdi:dots-horizontal-circle-outline'
+      },
+      component: () => import('@/views/exception/other/index.vue')
     }
   ]
 };

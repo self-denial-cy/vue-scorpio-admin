@@ -23,7 +23,6 @@ watch(
 <template>
   <div class="taber h-full flex flex-1 justify-between overflow-hidden dark:bg-dark">
     <div class="flex-1 overflow-hidden h-full">
-      <!-- TODO 优化 scroll 效果 -->
       <BetterScroll :options="{ scrollX: true, scrollY: false, click: true }">
         <Tabs></Tabs>
       </BetterScroll>

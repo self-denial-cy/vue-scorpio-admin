@@ -5,8 +5,7 @@ interface StorageData {
   expired: number | null;
 }
 
-// TODO 默认缓存期限修改为可配置
-const DEFAULT_CACHE_TIME = 7 * 24 * 60 * 60; // 7 天
+const DEFAULT_CACHE_TIME = import.meta.env.VITE_APP_LOCAL_DEFAULT_CACHE_TIME; // 7 天
 
 export function setLocal(key: string, value: unknown, expired: number | null = DEFAULT_CACHE_TIME) {
   const storageData: StorageData = {

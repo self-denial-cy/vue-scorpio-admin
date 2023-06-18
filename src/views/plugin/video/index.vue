@@ -2,10 +2,6 @@
 import Player from 'xgplayer';
 import 'xgplayer/dist/index.min.css';
 
-defineOptions({
-  name: 'video'
-});
-
 const domRef = $ref<HTMLDivElement | null>(null);
 let player = $ref<Player | null>(null);
 

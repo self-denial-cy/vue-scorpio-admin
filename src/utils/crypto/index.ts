@@ -1,7 +1,6 @@
 import CryptoJS from 'crypto-js';
 
-// TODO 修改成可配置的 Secret
-const CryptoSecret = '__Crypto_Secret__';
+const CryptoSecret = import.meta.env.VITE_APP_CRYPTO_SECRET;
 
 // 数据加密
 export function encrypt(data: unknown) {

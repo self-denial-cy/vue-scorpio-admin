@@ -37,13 +37,11 @@ watch(
     }
   }
 );
-
-defineExpose({ instance });
 </script>
 
 <template>
   <div ref="wrapper" class="h-full">
-    <div ref="scroller" :class="{ 'h-full': !isScrollY }">
+    <div ref="scroller" class="inline-block" :class="{ 'h-full': !isScrollY }">
       <slot></slot>
     </div>
   </div>

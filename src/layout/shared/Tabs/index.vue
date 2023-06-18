@@ -21,7 +21,6 @@ function handleTabRemove(name: TabPaneName) {
   <ElTabs
     :model-value="_active"
     type="card"
-    tab-position="bottom"
     class="tabs h-full pl-20px flex items-center"
     @tab-click="handleTabClick"
     @tab-remove="handleTabRemove"
@@ -38,3 +37,11 @@ function handleTabRemove(name: TabPaneName) {
     </ElTabPane>
   </ElTabs>
 </template>
+
+<style lang="less" scoped>
+.tabs {
+  :deep(.el-tabs__header) {
+    margin-bottom: 0;
+  }
+}
+</style>

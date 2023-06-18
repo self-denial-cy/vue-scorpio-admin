@@ -20,7 +20,7 @@ export const initRoutes: RouteRecordRaw[] = [
   {
     name: '403',
     path: '/403',
-    component: () => import('@/views/403/index.vue'),
+    component: () => import('@/views/exception/403/index.vue'),
     meta: {
       title: 'Forbidden'
     }
@@ -28,7 +28,7 @@ export const initRoutes: RouteRecordRaw[] = [
   {
     name: '404',
     path: '/404',
-    component: () => import('@/views/404/index.vue'),
+    component: () => import('@/views/exception/404/index.vue'),
     meta: {
       title: 'Not Found'
     }
@@ -36,7 +36,7 @@ export const initRoutes: RouteRecordRaw[] = [
   {
     name: '500',
     path: '/500',
-    component: () => import('@/views/500/index.vue'),
+    component: () => import('@/views/exception/500/index.vue'),
     meta: {
       title: 'Internal Server Error'
     }
@@ -45,6 +45,6 @@ export const initRoutes: RouteRecordRaw[] = [
   {
     name: '*',
     path: '/:pathMatch(.*)*',
-    component: () => import('@/views/404/index.vue')
+    component: () => import('@/views/exception/404/index.vue')
   }
 ];
