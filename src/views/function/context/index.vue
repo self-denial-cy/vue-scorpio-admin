@@ -18,14 +18,16 @@ const { count } = useProvide();
         <ElTag class="ml-8px">父</ElTag>
       </div>
       <div class="mb-16px">
-        <PlusButton></PlusButton>
-        <ElTag class="ml-8px">子</ElTag>
-        <ElTag type="warning" class="ml-8px">兄</ElTag>
+        <PlusButton>
+          <ElTag class="ml-8px">子</ElTag>
+          <ElTag type="warning" class="ml-8px">兄</ElTag>
+        </PlusButton>
       </div>
       <div>
-        <MinusButton></MinusButton>
-        <ElTag class="ml-8px">子</ElTag>
-        <ElTag type="warning" class="ml-8px">弟</ElTag>
+        <MinusButton>
+          <ElTag class="ml-8px">子</ElTag>
+          <ElTag type="warning" class="ml-8px">弟</ElTag>
+        </MinusButton>
       </div>
     </ElCard>
   </div>
