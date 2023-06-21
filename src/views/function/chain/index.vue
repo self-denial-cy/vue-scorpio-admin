@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus';
+import { ChainExecuter, ChainBoolNode, ChainNode } from '@/helpers';
 
 interface IForm {
   time: string;
@@ -28,8 +29,62 @@ const rules = reactive<FormRules>({
   xiSheep: [{ required: true, message: '请选择是否出战', trigger: 'blur' }],
   feiSheep: [{ required: true, message: '请选择是否出战', trigger: 'blur' }],
   manSheep: [{ required: true, message: '请选择是否出战', trigger: 'blur' }],
-  lanSheep: [{ required: true, message: '请选择是否出战', trigger: 'blur' }]
+  lanSheep: [{ required: true, message: '请选择是否出战', trigger: 'blur' }],
+  wolfs: [
+    {
+      trigger: 'change',
+      validator(rule, value, callback) {
+        console.log(rule);
+        const executer = new ChainExecuter();
+        const lenNode = new ChainNode(
+          () => value.length,
+          null,
+          () => callback(new Error('至少一只狼出战'))
+        );
+        const greyWolfNode = new ChainNode(
+          () => value.includes('greyWolf'),
+          null,
+          () => callback(new Error('灰太狼必须参战'))
+        );
+        executer.append(lenNode);
+        executer.append(greyWolfNode);
+        executer.executeAll();
+        callback();
+      }
+    }
+  ]
 });
+
+const canLanSheetFight = computed(() => {
+  return (
+    form.xiSheep === 'fight' &&
+    form.feiSheep === 'fight' &&
+    form.manSheep === 'secretWeapon' &&
+    !form.wolfs.includes('redWolf')
+  );
+});
+
+async function fight() {
+  if (!(await formRef.value?.validate())) return;
+  const executer = new ChainExecuter();
+  /**
+   * 狼群获胜：
+   *  1. 西瓜太狼出战
+   *  2. 夜晚战斗
+   *  3. 懒羊羊逃跑
+   */
+  const watermelonWar = new ChainBoolNode(() => form.isWatermelonWar);
+  const nightWar = new ChainBoolNode(() => form.time === 'night');
+  const lanSheepEscape = new ChainBoolNode(() => form.lanSheep === 'escape');
+  executer.append(watermelonWar);
+  executer.append(nightWar);
+  executer.append(lanSheepEscape);
+  if (executer.execute()) {
+    ElMessage.error('狼堡获胜');
+  } else {
+    ElMessage.success('羊村获胜');
+  }
+}
 </script>
 
 <template>
@@ -79,8 +134,22 @@ const rules = reactive<FormRules>({
         <ElFormItem label="懒羊羊" prop="lanSheep">
           <ElSelect v-model="form.lanSheep" clearable placeholder="请选择是否出战">
             <ElOption label="逃跑" value="escape"></ElOption>
-            <ElOption label="出战" value="fight"></ElOption>
+            <ElOption label="出战" value="fight" :disabled="!canLanSheetFight"></ElOption>
           </ElSelect>
+        </ElFormItem>
+        <ElFormItem label="狼堡出站" prop="wolfs">
+          <ElCheckboxGroup v-model="form.wolfs">
+            <ElCheckbox label="greyWolf">灰太狼</ElCheckbox>
+            <ElCheckbox label="redWolf">红太狼</ElCheckbox>
+            <ElCheckbox label="smallWolf">小灰灰</ElCheckbox>
+            <ElCheckbox label="bananaWolf">蕉太狼</ElCheckbox>
+          </ElCheckboxGroup>
+        </ElFormItem>
+        <ElFormItem label="西瓜太狼参战" prop="isWatermelonWar">
+          <ElSwitch v-model="form.isWatermelonWar"></ElSwitch>
+        </ElFormItem>
+        <ElFormItem>
+          <ElButton type="danger" @click="fight">开战</ElButton>
         </ElFormItem>
       </ElForm>
     </ElCard>
