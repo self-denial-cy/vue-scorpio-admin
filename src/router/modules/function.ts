@@ -20,6 +20,15 @@ export const record: RouteRecordRaw = {
         icon: 'mdi:share-all'
       },
       component: () => import('@/views/function/context/index.vue')
+    },
+    {
+      name: 'chain',
+      path: 'chain',
+      meta: {
+        title: '责任链模式',
+        icon: 'mdi:resistor-nodes'
+      },
+      component: () => import('@/views/function/chain/index.vue')
     }
   ]
 };
