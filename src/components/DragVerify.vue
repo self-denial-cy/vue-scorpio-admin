@@ -90,7 +90,13 @@ const getContentStyle = computed(() => {
 const actionRef = ref<HTMLDivElement | null>(null);
 const getActionStyle = computed(() => {
   const h = parseInt(props.height as string);
+  let left: number | string = 0;
+  if (actionRef.value && state.passed) {
+    const { width, actionWidth } = getOffset(actionRef.value);
+    left = `${width - actionWidth}px`;
+  }
   return {
+    left,
     width: `${h}px`,
     height: `${h}px`,
     ...props.actionStyle
@@ -109,7 +115,7 @@ const state = reactive({
 function getOffset(el: HTMLDivElement) {
   const actionWidth = parseInt(el.style.width);
   const width = parseInt(props.width as string);
-  const offset = width - actionWidth - 8; // 留 8px 的空间锁定验证成功
+  const offset = width - actionWidth - 5; // 留 5px 的空间锁定验证成功
   return { offset, width, actionWidth };
 }
 
@@ -228,7 +234,6 @@ defineExpose({
       class="drag-verify-action"
       :class="{ 'to-left': state.toLeft }"
       :style="getActionStyle"
-      style="left: 0"
       @mousedown="handleDragStart"
       @touchstart="handleDragStart"
     >
