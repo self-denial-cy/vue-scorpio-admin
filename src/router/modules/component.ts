@@ -20,6 +20,15 @@ export const record: RouteRecordRaw = {
         icon: 'mdi:ruler-square-compass'
       },
       component: () => import('@/views/component/validate/index.vue')
+    },
+    {
+      name: 'verify',
+      path: 'verify',
+      meta: {
+        title: '人机验证',
+        icon: 'mdi:robot-outline'
+      },
+      component: () => import('@/views/component/verify/index.vue')
     }
   ]
 };
