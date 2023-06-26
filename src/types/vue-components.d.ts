@@ -82,6 +82,7 @@ declare module '@vue/runtime-core' {
     ImportExcel: typeof import('./../components/ImportExcel.vue')['default']
     Loading: typeof import('./../components/Loading.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
+    RandomCodeVerify: typeof import('./../components/RandomCodeVerify.vue')['default']
     RotateVerify: typeof import('./../components/RotateVerify.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

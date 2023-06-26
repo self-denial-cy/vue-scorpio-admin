@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>RotateVerify</div>
+  <div></div>
 </template>

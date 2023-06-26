@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DragVerify, RotateVerify } from './components';
+import { DragVerifyExample, RotateVerifyExample, RandomCodeVerifyExample } from './components';
 </script>
 
 <template>
@@ -9,8 +9,9 @@ import { DragVerify, RotateVerify } from './components';
         <span class="text-18px">人机验证</span>
       </template>
       <div class="flex justify-center items-center flex-wrap">
-        <DragVerify></DragVerify>
-        <RotateVerify></RotateVerify>
+        <DragVerifyExample></DragVerifyExample>
+        <RotateVerifyExample></RotateVerifyExample>
+        <RandomCodeVerifyExample></RandomCodeVerifyExample>
       </div>
     </ElCard>
   </div>

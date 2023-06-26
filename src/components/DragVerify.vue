@@ -42,12 +42,18 @@ const props = withDefaults(defineProps<Props>(), {
   successText: '验证通过'
 });
 
+export interface MoveData {
+  event: MouseEvent | TouchEvent;
+  moveDistance: number;
+  moveX: number;
+}
+
 interface Emits {
   (event: 'success', result: Result): void;
   (event: 'update:value', passed: boolean): void;
   (event: 'change', passed: boolean): void;
   (event: 'start', evt: MouseEvent | TouchEvent): void;
-  (event: 'move', data: { event: MouseEvent | TouchEvent; moveDistance: number; moveX: number }): void;
+  (event: 'move', data: MoveData): void;
   (event: 'end', evt: MouseEvent | TouchEvent): void;
 }
 
@@ -91,9 +97,14 @@ const actionRef = ref<HTMLDivElement | null>(null);
 const getActionStyle = computed(() => {
   const h = parseInt(props.height as string);
   let left: number | string = 0;
-  if (actionRef.value && state.passed) {
+  if (barRef.value && actionRef.value && state.passed) {
     const { width, actionWidth } = getOffset(actionRef.value);
-    left = `${width - actionWidth}px`;
+    if (!props.isSlot) {
+      left = `${width - actionWidth}px`;
+    } else {
+      const barWidth = parseInt(barRef.value.style.width as string);
+      left = `${barWidth - actionWidth / 2}px`;
+    }
   }
   return {
     left,
@@ -131,7 +142,9 @@ function handleDragMove(evt: MouseEvent | TouchEvent) {
     } else if (moveX > offset) {
       actionRef.value.style.left = `${width - actionWidth}px`;
       barRef.value.style.width = `${width - actionWidth / 2}px`;
-      checkPassed();
+      if (!props.isSlot) {
+        checkPassed();
+      }
     }
   }
 }
@@ -149,11 +162,28 @@ function handleDragOver(evt: MouseEvent | TouchEvent) {
     const moveX = getPageX(evt) - state.moveDistance;
     emit('end', evt);
     if (moveX < offset) {
-      resume();
+      if (!props.isSlot) {
+        resume();
+      } else {
+        nextTick(() => {
+          if (!props.value) {
+            resume();
+          } else {
+            if (contentRef.value && barRef.value) {
+              contentRef.value.style.width = `${parseInt(barRef.value.style.width as string)}px`;
+            }
+            state.isMoving = false;
+          }
+        });
+      }
     } else {
       actionRef.value.style.left = `${width - actionWidth}px`;
       barRef.value.style.width = `${width - actionWidth / 2}px`;
-      checkPassed();
+      if (!props.isSlot) {
+        checkPassed();
+      } else {
+        resume();
+      }
     }
   }
 }
@@ -166,12 +196,12 @@ function resume() {
   state.startTime = 0;
   state.endTime = 0;
   if (!wrapperRef.value || !barRef.value || !actionRef.value) return;
-  state.toLeft = true;
+  state.toLeft = true; // 还原动画
   setTimeout(() => {
     state.toLeft = false;
     if (actionRef.value) actionRef.value.style.left = '0';
     if (barRef.value) barRef.value.style.width = '0';
-  }, 300);
+  }, 300); // timeout 与动画持续时长一致
   if (contentRef.value) contentRef.value.style.width = getContentStyle.value.width;
 }
 
@@ -200,6 +230,10 @@ watch(
     }
   }
 );
+
+watchEffect(() => {
+  state.passed = !!props.value;
+});
 
 useEventListener(document, 'mouseup', () => {
   if (state.isMoving) {
@@ -273,7 +307,7 @@ defineExpose({
     user-select: none;
     text-size-adjust: none;
     font-size: 12px;
-    &.success {
+    &.success > * {
       color: #fff;
     }
     & > * {
