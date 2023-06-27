@@ -177,12 +177,21 @@ function handleDragOver(evt: MouseEvent | TouchEvent) {
         });
       }
     } else {
-      actionRef.value.style.left = `${width - actionWidth}px`;
-      barRef.value.style.width = `${width - actionWidth / 2}px`;
       if (!props.isSlot) {
+        actionRef.value.style.left = `${width - actionWidth}px`;
+        barRef.value.style.width = `${width - actionWidth / 2}px`;
         checkPassed();
       } else {
-        resume();
+        nextTick(() => {
+          if (!props.value) {
+            resume();
+          } else {
+            if (contentRef.value && barRef.value) {
+              contentRef.value.style.width = `${parseInt(barRef.value.style.width as string)}px`;
+            }
+            state.isMoving = false;
+          }
+        });
       }
     }
   }
