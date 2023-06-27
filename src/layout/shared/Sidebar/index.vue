@@ -17,7 +17,6 @@ const activeRoute = computed(() => route.path);
 </script>
 
 <template>
-  <!-- TODO 暗黑主题样式 -->
   <div class="w-full h-full flex-col dark:bg-dark sidebar">
     <Logo :show-title="!collapse" class="h-56px py-10px px-5px s-transition"></Logo>
     <ElScrollbar class="scrollbar" :class="{ expand: !collapse }">
