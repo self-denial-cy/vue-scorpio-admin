@@ -28,3 +28,10 @@ export enum Role {
   admin = '管理员',
   user = '普通用户'
 }
+
+// 请求头 Content-Type
+export enum ContentType {
+  json = 'application/json',
+  formUrlencoded = 'application/x-www-form-urlencoded',
+  formData = 'multipart/form-data'
+}
