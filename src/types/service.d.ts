@@ -17,4 +17,15 @@ declare namespace Service {
     code: string | number; // 错误码
     msg: string; // 错误信息
   }
+  interface FailedResult {
+    error: ErrorInfo;
+    data: null;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  interface SucceedResult<T = any> {
+    error: null;
+    data: T;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type ServiceResult<T = any> = SucceedResult<T> | FailedResult;
 }

@@ -1,4 +1,4 @@
-import type { AxiosError } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
 import qs from 'qs';
 import { ContentType } from '@/enum';
 import { isFile, isArray } from '@/utils';
@@ -10,14 +10,10 @@ import {
   TIMEOUT_ERROR_CODE,
   TIMEOUT_ERROR_MSG,
   type ERROR_STATUS_CODE,
-  ERROR_STATUS
+  ERROR_STATUS,
+  SILENT_ERROR_CODE,
+  ERROR_MSG_DURATION
 } from './config';
-
-/**
- * 策略模式
- * [状态, 为 true 时执行回调函数]
- */
-type StrategyAction = [boolean, () => void];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function transformRequestData(data: any, contentType?: string) {
@@ -59,6 +55,12 @@ function transformFile(formData: FormData, key: string, value: File | File[]) {
   }
 }
 
+/**
+ * 策略模式
+ * [状态, 为 true 时执行回调函数]
+ */
+type StrategyAction = [boolean, () => void];
+
 export function transformAxiosError(axiosError: AxiosError) {
   const error: Service.ErrorInfo = {
     type: 'axios',
@@ -91,6 +93,8 @@ export function transformAxiosError(axiosError: AxiosError) {
     ]
   ];
   execStrategyActions(actions);
+  showErrorMsg(error);
+  return error;
 }
 
 function execStrategyActions(actions: StrategyAction[]) {
@@ -100,4 +104,81 @@ function execStrategyActions(actions: StrategyAction[]) {
     }
     return bool;
   });
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function transformLogicError(result: Record<string, any>, specification: Service.Specification) {
+  const { codeField, msgField } = specification;
+  const error: Service.ErrorInfo = {
+    type: 'logic',
+    code: result[codeField],
+    msg: result[msgField]
+  };
+  showErrorMsg(error);
+  return error;
+}
+
+export function transformResponseError(response: AxiosResponse) {
+  const error: Service.ErrorInfo = {
+    type: 'axios',
+    code: DEFAULT_ERROR_CODE,
+    msg: DEFAULT_ERROR_MSG
+  };
+  if (!window.navigator.onLine) {
+    Object.assign(error, { code: NETWORK_ERROR_CODE, msg: NETWORK_ERROR_MSG });
+  } else {
+    const errorCode: ERROR_STATUS_CODE = response.status as ERROR_STATUS_CODE;
+    const msg = ERROR_STATUS[errorCode] || DEFAULT_ERROR_MSG;
+    Object.assign(error, { type: 'http', code: errorCode, msg });
+  }
+  showErrorMsg(error);
+  return error;
+}
+
+// 错误信息栈，避免错误重复提示
+const errorMsgStack = new Map<string | number, string>([]);
+
+// 入栈
+function addErrorMsg(error: Service.ErrorInfo) {
+  errorMsgStack.set(error.code, error.msg);
+}
+
+// 出栈
+function removeErrorMsg(error: Service.ErrorInfo) {
+  errorMsgStack.delete(error.code);
+}
+
+// 检查是否在栈中
+function hasErrorMsg(error: Service.ErrorInfo) {
+  return errorMsgStack.has(error.code);
+}
+
+// 错误信息提示
+function showErrorMsg(error: Service.ErrorInfo) {
+  if (!error.msg || SILENT_ERROR_CODE.includes(error.code) || hasErrorMsg(error)) return;
+  addErrorMsg(error);
+  window.console.warn(error.code, error.msg);
+  ElMessage.error({
+    message: error.msg,
+    duration: ERROR_MSG_DURATION
+  });
+  setTimeout(() => {
+    removeErrorMsg(error);
+  }, ERROR_MSG_DURATION);
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function transformServiceResult<T = any>(error: Service.ErrorInfo | null, data: any) {
+  if (error) {
+    const failedResult: Service.FailedResult = {
+      error,
+      data: null
+    };
+    return failedResult;
+  }
+  const succeedResult: Service.SucceedResult<NonNullable<T>> = {
+    error: null,
+    data
+  };
+  return succeedResult;
 }
