@@ -13,7 +13,7 @@ interface RequestParameter {
   axiosConfig?: AxiosRequestConfig;
 }
 
-export function createService(axiosConfig: AxiosRequestConfig, specification: Service.Specification) {
+export function createService(axiosConfig: AxiosRequestConfig, specification?: Service.Specification) {
   const service = new Service(axiosConfig, specification);
 
   async function asyncRequest<T>(parameter: RequestParameter): Promise<Service.ServiceResult<T>> {

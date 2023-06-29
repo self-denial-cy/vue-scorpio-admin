@@ -9,7 +9,7 @@ export const record: RouteRecordRaw = {
   meta: {
     title: '关于',
     _hidden: true,
-    sort: 9
+    sort: 7
   },
   children: [
     {

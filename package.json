@@ -30,6 +30,7 @@
     "echarts": "^5.4.2",
     "element-plus": "^2.3.5",
     "handsontable": "^12.4.0",
+    "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.36",
     "qs": "^6.11.2",
@@ -92,6 +93,7 @@
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.3.5",
+    "vite-plugin-mock": "^2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^1.6.4"
   },

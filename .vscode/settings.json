@@ -1,8 +1,8 @@
 {
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "literals",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
+  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "typescript.inlayHints.parameterNames.enabled": "literals",
+  // "typescript.inlayHints.parameterTypes.enabled": true,
+  // "typescript.inlayHints.variableTypes.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -41,6 +41,7 @@
     "iconify",
     "infile",
     "jsapi",
+    "mockjs",
     "necolas",
     "nocheck",
     "nprogress",

@@ -12,6 +12,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import Autoprefixer from 'autoprefixer';
 import PostcssPxtorem from 'postcss-pxtorem';
 import UnoCss from 'unocss/vite';
+import { viteMockServe } from 'vite-plugin-mock';
 
 function resolve(src: string): string {
   return fileURLToPath(new URL(src, import.meta.url));
@@ -66,7 +67,17 @@ export default defineConfig({
     // 响应性语法糖
     ReactivityTransform(),
     // unocss 原子化
-    UnoCss()
+    UnoCss(),
+    viteMockServe({
+      ignore: /^_/,
+      mockPath: 'mock',
+      localEnabled: true,
+      prodEnabled: true,
+      injectCode: `
+        import { setupProdMockServer } from '../mock/_createProductionServer';
+        setupProdMockServer();
+      `
+    })
   ],
   resolve: {
     alias: {

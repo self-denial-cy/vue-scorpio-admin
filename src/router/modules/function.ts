@@ -29,6 +29,15 @@ export const record: RouteRecordRaw = {
         icon: 'mdi:resistor-nodes'
       },
       component: () => import('@/views/function/chain/index.vue')
+    },
+    {
+      name: 'request',
+      path: 'request',
+      meta: {
+        title: '网络请求',
+        icon: 'ep:promotion'
+      },
+      component: () => import('@/views/function/request/index.vue')
     }
   ]
 };
