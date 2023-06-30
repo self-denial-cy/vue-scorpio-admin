@@ -13,6 +13,7 @@
       "vitest/globals",
       "jsdom",
       "node"
-    ]
+    ],
+    "noEmit": false
   }
 }

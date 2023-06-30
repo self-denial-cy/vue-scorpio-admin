@@ -18,10 +18,10 @@
     "eslint --fix"
   ],
   "*.vue": [
-    "stylelint --fix",
+    "stylelint --fix --allow-empty-input",
     "eslint --fix"
   ],
-  "*.less": "stylelint --fix",
-  "*.scss": "stylelint --fix",
-  "*.css": "stylelint --fix"
+  "*.less": "stylelint --fix --allow-empty-input",
+  "*.scss": "stylelint --fix --allow-empty-input",
+  "*.css": "stylelint --fix --allow-empty-input"
 }
