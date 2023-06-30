@@ -19,6 +19,7 @@ function resolve(src: string): string {
 }
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/vue-scorpio-admin/' : '/',
   plugins: [
     Vue(),
     // API 自动按需导入
