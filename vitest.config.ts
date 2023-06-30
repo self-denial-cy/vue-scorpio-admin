@@ -11,9 +11,12 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      environment: 'jsdom',
       coverage: {
-        provider: 'istanbul' // or 'v8'
-      }
+        provider: 'v8' // or 'istanbul'
+      },
+      globals: true,
+      exclude: [...configDefaults.exclude]
     }
   })
 );
