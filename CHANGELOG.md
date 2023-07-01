@@ -1,5 +1,7 @@
 
 
+## [1.1.1](https://github.com/self-denial-cy/vue-scorpio-admin/compare/1.1.0...1.1.1) (2023-07-01)
+
 # 1.1.0 (2023-06-30)
 
 
