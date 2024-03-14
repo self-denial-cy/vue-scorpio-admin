@@ -1,14 +1,10 @@
 {
   "recommendations": [
-    "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin",
     "EditorConfig.EditorConfig",
-    "usernamehw.errorlens",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "antfu.unocss",
     "Gruntfuggly.todo-tree",
-    "streetsidesoftware.code-spell-checker",
     "aaron-bond.better-comments"
   ]
 }

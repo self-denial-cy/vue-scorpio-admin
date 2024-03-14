@@ -39,6 +39,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          VITE_APP_GAODE_SDK_KEY: ${{ secrets.GAODE_SDK_KEY }}
+          VITE_APP_GAODE_SECURITY_CODE: ${{ secrets.GAODE_SECURITY_CODE }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
