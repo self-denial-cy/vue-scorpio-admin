@@ -18,8 +18,21 @@ function resolve(src: string): string {
   return fileURLToPath(new URL(src, import.meta.url));
 }
 
+function getBase(env: string): string {
+  let base = '/';
+  switch (env) {
+    case 'production':
+      base = '/vue-scorpio-admin/';
+      break;
+    case 'development':
+      base = '/';
+      break;
+  }
+  return base;
+}
+
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/vue-scorpio-admin/' : '/',
+  base: getBase(process.env.NODE_ENV),
   plugins: [
     Vue(),
     // API 自动按需导入
